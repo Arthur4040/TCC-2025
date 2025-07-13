@@ -71,14 +71,25 @@
 
   // Função para ocultar ou mostrar o container de endereço
   document.getElementById("tipoEntrega").addEventListener("change", function () {
-    const container = document.getElementById("enderecoContainer");
-    const isRetirada = this.value === "retirada";
+  const isRetirada = this.value === "retirada";
+  const container = document.getElementById("enderecoContainer");
 
-    if (isRetirada) {
-        container.classList.add("visivel");
-    } else {
-        container.classList.remove("visivel");
+  // Mostrar ou ocultar o container
+  container.classList.toggle("visivel", isRetirada);
+
+  // Lista de IDs dos campos de endereço
+  const camposEndereco = ["rua", "numero", "bairro", "CEP", "munincipio"];
+
+  camposEndereco.forEach(id => {
+    const campo = document.getElementById(id);
+    if (campo) {
+      if (isRetirada) {
+        campo.setAttribute("required", "required");
+      } else {
+        campo.removeAttribute("required");
+      }
     }
+  });
 });
 
  document.getElementById("enviar doação").addEventListener("submit", (e) => {

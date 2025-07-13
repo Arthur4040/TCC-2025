@@ -69,7 +69,6 @@
     mostrarMateriais(escola);
   });
 
-  // Função para ocultar ou mostrar o container de endereço
   document.getElementById("tipoEntrega").addEventListener("change", function () {
   const isRetirada = this.value === "retirada";
   const container = document.getElementById("enderecoContainer");

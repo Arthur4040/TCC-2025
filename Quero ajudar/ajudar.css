@@ -1,0 +1,460 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+:root {
+    --background-color: #ffffff;
+    --header-color: #2e99a5;
+    --footer-color:  #2e99a5;
+    --text-color: #000000;
+    --btn-color: #298993;
+}
+
+[data-theme="dark"] {
+    --background-color: #131313;
+    --header-color: #298993;
+    --footer-color: #298993;
+    --text-color: #eee;
+    --btn-color: #2e99a5;
+}
+
+
+    /*From Uiverse.io*/
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    margin-top: 18px;
+    width: 4em;
+    height: 2.2em;
+    border-radius: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-top: 10px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #4499ff;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 20px;
+    right: 0.5em;
+    bottom: 0.5em;
+    transition: 0.4s;
+    transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+    /* SOL: No modo claro (input não checado), mostra o sol */
+    box-shadow: inset 15px -4px 0px 15px #ffcf48; /* Usa a sombra do sol aqui */
+}
+
+.switch input:checked+.slider {
+    /* Fundo claro para o modo escuro (noite), para a lua se destacar */
+    background-color: #131313;
+}
+
+.switch input:checked+.slider:before {
+    transform: translateX(-1.8em);
+    /* LUA: No modo escuro (input checado), mostra a lua */
+    box-shadow: inset 8px -4px 0px 0px #fff; /* Usa a sombra da lua aqui */
+}
+
+/* Estrelas: Devem aparecer no modo escuro, desaparecer no modo claro */
+.star {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    opacity: 0; /* Escondidas por padrão (modo claro) */
+    transition: all 0.4s;
+}
+
+.star_1 {
+    left: 2.5em;
+    top: 0.5em;
+}
+
+.star_2 {
+    left: 2.2em;
+    top: 1.2em;
+}
+
+.star_3 {
+    left: 3em;
+    top: 0.9em;
+}
+
+.switch input:checked~.slider .star {
+    opacity: 1; /* Visíveis no modo escuro */
+}
+
+/* Nuvens: Devem aparecer no modo claro, desaparecer no modo escuro */
+.cloud {
+    width: 3.5em;
+    position: absolute;
+    bottom: -1.4em;
+    left: -1.1em;
+    opacity: 1; /* Visíveis por padrão (modo claro) */
+    transition: all 0.4s;
+}
+
+.switch input:checked~.slider .cloud {
+    opacity: 0; /* Escondidas no modo escuro */
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* header */
+header {
+    background-color: var(--header-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 80px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 20px 20px;
+    font-size: 17.5px;
+    border-radius: 15px;    
+    box-shadow: #1d3c41 0px 6px 9px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+}
+
+nav a:nth-child(4) {
+    background: #f7a700;
+    box-shadow: #8a5e01 0px 11px 10px;
+    color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+h1 {
+    margin-top: 25px;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container-form { 
+    width: 100%;
+    max-width: 800px; /* valor realista */
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.content-form {
+    width: 100%;
+    max-width: 800px; /* mesmo limite do container */
+    gap: 20px;
+    padding: 11px;
+    border-radius: 10px;
+    font-size: 15px;
+    border: var(--text-color) solid 1px;
+    gap: 15px; /* espaçamento entre inputs */
+}
+
+input,
+select,
+textarea {
+    margin-bottom: 15px;
+}
+
+/* Botão enviar */
+.btn-enviar {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.enviar {
+    background-color: var(--btn-color);
+    color: ghostwhite;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 15px;
+    box-shadow: var(--text-color) 0px 0px 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.enviar:hover {
+    transform: scale(1.1);
+}
+
+.checkbox-materiais {
+    transform: scale(2); /* aumenta o tamanho visual */
+    margin: 10px;
+}
+
+#enderecoContainer {
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+#enderecoContainer.visivel {
+    visibility: visible;
+    height: auto;
+}
+
+.checkbox-tipo-de-entrega {
+    transform: scale(2); /* aumenta o tamanho visual */
+    margin: 10px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+/* Footer */
+footer {
+   width: 100%;
+   background-color: var(--footer-color);
+   color: white;
+}
+
+.footer-contents {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    font-size: 16px;
+    text-align: left
+}
+
+.footer-contatos {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-list {
+   margin-left: 20px;
+   display: flex;
+   align-self: start;
+   flex-direction: column;
+   gap: 0.75rem;
+   list-style: none;
+} 
+
+.footer-address {
+   list-style: none;
+  align-self: start;
+   gap: 0.75rem;
+} 
+
+.footer-address h3 {
+  margin: 0;
+  text-align: left
+}
+
+.redes_sociais-icon {
+  width: 45px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.redes_sociais-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.footer-logo-governo {
+  align-self: start;
+  text-align: end;
+  text-align: center;
+}
+
+.footer-logo-governo img {
+  width: 120px;
+  max-width: 600px;
+  height: auto;
+  margin-right: 35px;
+}
+
+#footer-copyright {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .footer-contents {
+     gap: 20px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contatos {
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .footer-address h3 {
+    text-align: center;
+  }
+
+  .footer-logo-governo {
+    text-align: center;
+  }
+
+  .footer-logo-governo img {
+    width: 120px;
+    height: 120px;
+    max-width: 600px;
+    margin-right: 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------------------- */
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header img {
+    margin: 0;
+    height: 70px;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+  }
+
+  .switch {
+    margin: 10px 0;
+    text-align: center;    
+  }
+
+  .menu-toggle {
+    background-color: var(--btn-color);
+    color: ghostwhite;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 100%;
+    height: auto;
+    border: none;
+    box-shadow: whitesmoke 0px 0px 3px;
+    transition: transform 0.3s;
+  }
+
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-form {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-enviar {
+    justify-content: center;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  .title {
+    text-align: center;
+    color: var(--text-color);
+    margin-top: 10px;
+  }
+
+  input,
+  select,
+  textarea {
+      margin-bottom: 5px;
+  }
+
+}

@@ -1,0 +1,217 @@
+  <!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Caminhos do Saber</title>
+   <link rel="shortcut icon" href="./Imgs-nav/Icon Caminhos do Saber.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./Home/styles.css">
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    
+</head>
+
+<body>
+    <header>
+          <a href="index.html">
+              <img src="./Imgs-nav/logo001.png" alt="Caminhos do Saber">
+          </a>
+
+          <button class="menu-toggle" id="menu-toggle">☰</button>
+
+          <nav id="navbar">
+            <a href="Saiba-mais.html">Saiba mais</a>
+            <a href="escolas-participantes.html">Escolas participantes</a>
+            <a href="minha-escola.html">Minha escola precisa</a>
+            <a href="quero-ajudar.html">Quero doar</a>
+            <label class="switch">
+              <input checked="true" id="checkbox" type="checkbox" class="toggle-btn"/>
+              <span class="slider">
+                  <div class="star star_1"></div>
+                  <div class="star star_2"></div>
+                  <div class="star star_3"></div>
+                  <svg viewBox="0 0 16 16" class="cloud_1 cloud">
+                      <path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff"
+                          d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925">
+                      </path>
+                  </svg>
+              </span>
+          </label> 
+
+          </nav>
+    </header>
+
+    <main>
+        
+        <div class="parallax-hm">
+            <div class="text-section">
+                <div class="slogan">Levando educação onde ela ainda não chegou!</div>
+                <a href="quero-ajudar.html">
+                    <button class="btn-doe-agora">DOE AGORA</button>
+                </a>
+            </div>
+        </div>
+
+
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <img src="./Home/Imgs/emilio.png" class="active" alt="Escola 1">
+                <img src="./Home/Imgs/ernesto.jpg" alt="Escola 2">
+                <img src="./Home/Imgs/Parobe.png"  alt="Escola 3">
+                <img src="./Home/Imgs/Colégio-Júlio-de-Castilhos.png" alt="Escola 4">
+                <img src="./Home/Imgs/Colégio Estadual Florinda Tubino Sampaio.png" alt="Escola 5">
+                <img src="./Home/Imgs/jose-patrocinio.jpg" alt="Escola 6">
+
+                <div class="carousel-navigation">
+                    <button onclick="prevSlide()" class="cssbuttons-io-button anterior">◀ Anterior</button>
+                    <a href="escolas-participantes.html">
+                        <button class="btn-escolas">ESCOLAS PARTICIPANTES</button>
+                    </a>
+                    <button onclick="nextSlide()" class="cssbuttons-io-button proximo">▶ Próximo</button>
+                </div>
+            </div>
+           
+           <div class="descricao">
+               <p id="pad"> O Caminhos do Saber é um projeto da SEDUC-RS criado para garantir que materiais escolares essenciais
+               cheguem a todas as escolas públicas, mesmo nas regiões mais remotas. Unimos logística, educação e solidariedade para
+               construir um futuro com mais qualidade.</p>
+               <p>O projeto ajuda centenas de escolas públicas a receberem materiais escolares essenciais principalmente no Rio Grande do Sul, e o nosso maior objetivo foi alcançado, e ampliamos o alcance do projeto para todo o Brasil, melhorando a qualidade de ensino de todas as escolas públicas.</p>
+               <a href="Saiba-mais.html">
+                   <button class="btn-saiba-mais">SAIBA MAIS</button>
+                </a>
+            </div>
+        </div>
+
+        
+      <div class="avaliacoes">
+  <h1>O que as escolas participantes do projeto dizem sobre ele?</h1>
+
+  <div class="container-avaliacoes">
+    <button onclick="antSlide()" class="botao-carrosel-avaliacao"><</button>
+
+    <div class="carrossel-avaliacoes-wrapper">
+      <div class="carrossel-avaliacoes" id="carrossel-card">
+
+        <div class="card-avaliacao">
+          <h4><strong>José da Silva</strong> – Diretor</h4>
+          <p>"O Caminhos do Saber ajudou a construir o acesso à aprendizagem nas escolas da rede estadual, ajudando a construir um futuro com mais qualidade."</p>
+        </div>
+
+        <div class="card-avaliacao">
+          <h4><strong>Maria Souza</strong> – Professora</h4>
+          <p>"Graças ao projeto, nossos alunos agora têm acesso a materiais fundamentais. Isso faz toda a diferença no dia a dia escolar."</p>
+        </div>
+
+        <div class="card-avaliacao">
+          <h4><strong>Lucas Andrade</strong> – Aluno</h4>
+          <p>"Recebemos cadernos, lápis e mochilas. Antes não tinha tudo isso. Agora posso estudar melhor e com mais conforto."</p>
+        </div>
+        
+      </div>
+    </div>
+
+    <button onclick="proxSlide()" class="botao-carrosel-avaliacao">></button>
+  </div>
+
+    <a href="quero-ajudar.html">
+     <button class="btn-doe-agora-avaliacao">DOE AGORA</button>
+    </a>
+
+</div>
+
+<footer>
+  <div class="footer-contents">
+
+  <div class="footer-list">
+    <li>
+      <ol>
+        <a href=""> <strong><a href="">Políticas e Termos</a></strong></a>
+      </ol>
+      <ol>
+        <a href="pdp.html">Políticas de Privacidade</a>
+      </ol>
+      <ol>
+        <a href=""> Termos de Uso</a>
+      </ol>
+      <ol>
+        <a href="">  Doações e Dados</a>
+      </ol>
+      <ol>
+        <a href=""></a>  Política de Doações e Segurança
+      </ol>
+    </li>
+  </div>
+  
+  <div class="footer-list">
+    <li>
+      <ol>
+        <strong>Perguntas Frequentes (FAQ)</strong>
+      </ol>
+
+      <ol>
+        <a href="">Quem pode doar?</a>
+      </ol>
+
+      <ol><a href="">Como garantir que a doação chegue?</a>
+      </ol>
+
+    </li>
+  </div>
+  
+  <div class="footer-address">
+    <h3>Endereço</h3>
+    <a href="http://maps.google.com/?q=Av.+Ipiranga,+6681+-+Partenon,+Porto+Alegre+-+RS" target="_blank">
+      Avenida Ipiranga, 6681 - Partenon<br>Porto Alegre, RS 90619-900
+    </a>
+  </div>
+  
+  <div class="footer-logo-governo">
+    <a href="https://www.estado.rs.gov.br/inicial" target="_blank">
+      <img src="./imgs-footer/logo-rs.png" alt="Governo do RS">
+    </a>
+  </div>
+
+</div>
+
+<div class="footer-contatos">
+  <a href="https://www.instagram.com/project.cds/" target="_blank">
+    <img src="./imgs-footer/instagram.png" alt="Instagram" class="redes_sociais-icon">
+    </a>
+    
+    <a href="mailto:caminhosdosaber.cliente@gmail.com">
+      <img src="./imgs-footer/gmail.png" alt="Gmail" class="redes_sociais-icon">
+    </a>
+
+    <a href="#" target="_blank">
+      <img src="./imgs-footer/phone-call.png" alt="Telefone" class="redes_sociais-icon">
+    </a>
+    
+    <a href="#" target="_blank">
+      <img src="./imgs-footer/github.png" alt="github" class="redes_sociais-icon">
+    </a>
+</div>
+
+<div id="footer-copyright">
+  <p>© 2023 Caminhos do Saber. Todos os direitos reservados.</p>
+</div>
+
+</footer>
+
+
+    <script src="./Home/index.js"></script>
+</body>
+
+</html>

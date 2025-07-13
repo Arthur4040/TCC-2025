@@ -1,0 +1,660 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: poppins, sans-serif;
+}
+
+:root {
+  --background-color: #ffffff;
+  --header-color: #2e99a5;
+  --footer-color:  #2e99a5;
+  --text-color: #000000;
+  --btn-color: #298993;
+}
+
+:root .icone {
+  filter: invert(0);
+}
+
+[data-theme="dark"] {
+  --background-color: #131313;
+  --header-color: #298993;
+  --footer-color: #298993;
+  --text-color: #eee;
+  --btn-color: #2e99a5;
+}
+
+[data-theme="dark"] .icone {
+  filter: invert(1);
+}
+
+/*From Uiverse.io*/
+
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  margin-top: 18px;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-top: 10px;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #4499ff;
+}
+
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  right: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s;
+  transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  /* SOL: No modo claro (input não checado), mostra o sol */
+  box-shadow: inset 15px -4px 0px 15px #ffcf48; /* Usa a sombra do sol aqui */
+}
+
+.switch input:checked+.slider {
+  /* Fundo claro para o modo escuro (noite), para a lua se destacar */
+  background-color: #131313;
+}
+
+.switch input:checked+.slider:before {
+  transform: translateX(-1.8em);
+  /* LUA: No modo escuro (input checado), mostra a lua */
+  box-shadow: inset 8px -4px 0px 0px #fff; /* Usa a sombra da lua aqui */
+}
+
+/* Estrelas: Devem aparecer no modo escuro, desaparecer no modo claro */
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  opacity: 0; /* Escondidas por padrão (modo claro) */
+  transition: all 0.4s;
+}
+
+.star_1 {
+  left: 2.5em;
+  top: 0.5em;
+}
+
+.star_2 {
+  left: 2.2em;
+  top: 1.2em;
+}
+
+.star_3 {
+  left: 3em;
+  top: 0.9em;
+}
+
+.switch input:checked~.slider .star {
+  opacity: 1; /* Visíveis no modo escuro */
+}
+
+/* Nuvens: Devem aparecer no modo claro, desaparecer no modo escuro */
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 1; /* Visíveis por padrão (modo claro) */
+  transition: all 0.4s;
+}
+
+.switch input:checked~.slider .cloud {
+  opacity: 0; /* Escondidas no modo escuro */
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* header */
+header {
+  background-color: var(--header-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 25px;
+  flex-wrap: wrap;
+}
+
+/* logo */
+header img {
+  height: 80px;
+}
+
+/* nav */
+nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* links */
+nav a {
+    text-decoration: none;
+    padding: 20px 20px;
+    font-size: 17.5px;
+    border-radius: 15px;    
+    box-shadow: #1d3c41 0px 6px 9px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+}
+
+nav a:nth-child(4) {
+    background: #f7a700;
+    box-shadow: #8a5e01 0px 11px 10px;
+    color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+
+
+.parallax {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 85vh;
+  width: 100%;
+  background: center / cover no-repeat;
+  background-attachment: fixed;
+  background-image: url(./imgs/parallax-saibamais.jpg); /* ajuste conforme necessário */
+  z-index: 0;
+}
+
+.parallax::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 43, 44, 0.5);
+  z-index: 0;
+}
+
+.parallax > * {
+  position: relative;
+  z-index: 1;
+}
+
+.title-quemsomos {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 45px; 
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    padding: 0 15px; /* Adiciona padding lateral para telas pequenas */
+}
+
+
+.parallax p {
+  text-align: center;
+  display: inline-block;
+  margin: 50px 0;
+  font-size: 20px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  padding: 0 20px; /* em vez de padding: auto */
+  margin-bottom: 80px;
+}
+
+.regular-content-section {
+  margin: 40px;
+  padding: 50px 0;
+  font-size: 1.5em;
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+.regular-content-section h1 {
+  text-align: center; 
+  font-size: 40px;
+  color: var(--text-color);
+  display: flex;
+  flex-direction: start;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.container-cards {
+  display: flex; /* Coloca os filhos (quadrados) em linha */
+  flex-direction: row; /* (padrão) Garante o alinhamento horizontal */
+  justify-content: center; /* Centraliza os quadrados horizontalmente */
+  gap: 35px; /* Espaçamento entre os quadrados */
+}
+
+.card {
+  border: 2px solid cadetblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: var(--btn-color) -4px 4px ;
+  margin-bottom: 20px;
+  padding: 20px;
+  font-size: 15px;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 25px
+} 
+  
+.card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+  filter: invert(1);
+} 
+
+.numeros {
+  background-color: #01737b;
+  padding: 120px 20px;
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+}
+
+.container-blocos {
+    display: flex; /* Habilita Flexbox */
+    justify-content: center; /* Centraliza os blocos horizontalmente */
+    gap: 40px; /* Espaço entre os blocos (ou use margin-right nos blocos, exceto o último) */
+    flex-wrap: wrap; /* Permite que os blocos quebrem para a próxima linha em telas menores */
+    max-width: 1200px; /* Limita a largura do container para que os blocos não fiquem muito esticados */
+    margin: 0 auto; /* Centraliza o container-blocos na página */
+}
+
+.bloco-numero {
+    flex: 1; /* Permite que os blocos cresçam e ocupem o espaço disponível */
+    min-width: 280px; /* Largura mínima para os blocos antes de quebrarem a linha */
+    max-width: 350px; /* Largura máxima para os blocos */
+    padding: 20px; /* Espaçamento interno nos blocos */
+    text-align: center; /* Garante que o texto dentro de cada bloco esteja centralizado */
+}
+
+.subtitulo-numero {
+    font-size: 1.3em; /* Tamanho do subtítulo de cada bloco */
+    color: #00BCD4; /* Cor azul turquesa para o subtítulo */
+    margin-bottom: 10px; /* Espaço abaixo do subtítulo */
+}
+
+.texto-numero {
+    font-size: 20px; /* Tamanho do texto de cada bloco */
+    line-height: 1.5; /* Altura da linha para melhor legibilidade */
+    color: white; /* Cor um pouco mais clara para o texto secundário */
+}
+
+/* Opcional: Para o padrão de fundo ondulado, você pode usar uma imagem de fundo */
+.secao-numeros {
+    /* ... outras propriedades ... */
+    background-image: url('caminho/para/sua/imagem-de-fundo-ondulada.png'); /* Substitua pelo caminho da sua imagem */
+    background-repeat: repeat;
+    background-size: auto; /* Ou o tamanho que preferir para o padrão */
+}
+
+/* Media Queries para responsividade */
+@media (max-width: 768px) {
+    .container-blocos {
+        flex-direction: column; /* Empilha os blocos verticalmente em telas menores */
+        align-items: center; /* Centraliza os blocos empilhados */
+    }
+
+    .bloco-numero {
+        max-width: 90%; /* Ajusta a largura para telas menores */
+    }
+
+    .titulo-secao {
+        font-size: 2em;
+    }
+}
+
+.title-parcerias {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.container-parcerias {
+  margin-bottom: 120px;
+  gap: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.parceira{
+  width: 60px;
+  height: auto;
+  gap: 15px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+  
+  
+  /* ------------------------------------------------------------------------------------------ */
+  /* footer */
+ footer {
+   width: 100%;
+   background-color: var(--footer-color);
+   color: white;
+}
+
+.footer-contents {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    font-size: 16px;
+    text-align: left
+}
+
+.footer-contatos {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-list {
+   margin-left: 20px;
+   display: flex;
+   align-self: start;
+   flex-direction: column;
+   gap: 0.75rem;
+   list-style: none;
+} 
+
+.footer-address {
+   list-style: none;
+  align-self: start;
+   gap: 0.75rem;
+} 
+
+.footer-address h3 {
+  margin: 0;
+  text-align: left
+}
+
+.redes_sociais-icon {
+  width: 45px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.redes_sociais-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.footer-logo-governo {
+  align-self: start;
+  text-align: end;
+  text-align: center;
+}
+
+.footer-logo-governo img {
+  width: 120px;
+  max-width: 600px;
+  height: auto;
+  margin-right: 35px;
+}
+
+#footer-copyright {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 768px) {
+  .footer-contents {
+     gap: 20px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contatos {
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .footer-address h3 {
+    text-align: center;
+  }
+
+  .footer-logo-governo {
+    text-align: center;
+  }
+
+  .footer-logo-governo img {
+    width: 120px;
+    height: 120px;
+    max-width: 600px;
+    margin-right: 0;
+  }
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header img {
+    margin: 0;
+    height: 70px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav.show {
+    display: flex;
+  }
+
+  nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+  }
+
+  .switch {
+    margin: 10px 0;
+    text-align: center;    
+  }
+
+
+  .menu-toggle {
+    background-color: var(--btn-color);
+    color: ghostwhite;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: whitesmoke 0px 0px 3px;
+    transition: transform 0.3s;
+  }
+
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Para telas menores que 768px (celulares) */
+@media (max-width: 768px) {
+    .parallax {
+        height: 75vh; /* Mais ajuste na altura do parallax */
+    }
+
+    .title-quemsomos {
+        font-size: 32px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    .parallax p {
+        font-size: 14.5px;
+        margin: 30px auto;
+        margin-bottom: 50px;
+        margin-top: 0;
+        padding: 0 15px; /* Garante que o texto não cole nas bordas */
+        overflow: hidden;
+    }
+
+    .regular-content-section {
+        margin: 20px auto;
+        padding: 30px 10px;
+        font-size: 1.1em;
+    }
+
+    .regular-content-section h1 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .container-cards {
+        flex-direction: column; /* Empilha os cards verticalmente */
+        align-items: center; /* Centraliza os cards empilhados */
+        gap: 20px;
+    }
+
+    .card {
+        flex: 1 1 auto; /* Permite que o card ocupe a largura disponível sem base fixa */
+        width: 90%; /* Ocupa a maior parte da largura da tela */
+        max-width: 350px; /* Mantém um max-width para não ficar muito largo em telas maiores dentro desta media query */
+        font-size: 14px;
+        padding: 20px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    .numeros {
+        padding: 80px 10px; /* Mais redução no padding da seção números */
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .texto-numero {
+        font-size: 16px; /* Mais ajuste no tamanho do texto dos blocos de números */
+    }
+
+    .title-parcerias {
+        font-size: 30px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    .container-parcerias {
+        margin-bottom: 60px;
+        gap: 60px; /* Reduz mais o espaçamento */
+        display: flex;
+        flex-direction: column;
+    }
+
+    .parceira img {
+    width: 70px;/* Mais redução no tamanho das imagens de parceria */
+    }
+
+}
+
+
+
+
+#marfinite {
+  width: 80px;
+}
+
+  #casa-do-papel {
+    width: 200px;
+  }
+  #marfinite {
+    width: 80px;
+  }
+
+#faber-castell {
+  width: 200px;
+}
+
+#pearson {
+  width: 80px;
+}
+
+#positivo {
+  width: 200px;
+}

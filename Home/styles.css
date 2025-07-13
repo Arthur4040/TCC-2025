@@ -1,0 +1,697 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: poppins, sans-serif;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+:root {
+    --background-color: #ffffff;
+    --header-color: #2e99a5;
+    --footer-color:  #2e99a5;
+    --text-color: #000000;
+    --btn-color: #298993;
+}
+
+[data-theme="dark"] {
+    --background-color: #131313;
+    --header-color: #298993;
+    --footer-color: #298993;
+    --text-color: #eee;
+    --btn-color: #2e99a5;
+}
+
+
+    
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    margin-top: 18px;
+    width: 4em;
+    height: 2.2em;
+    border-radius: 30px;
+}
+
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  margin-top: 10px;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0.4s;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #4499ff;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.2em;
+    width: 1.2em;
+    border-radius: 20px;
+    right: 0.5em;
+    bottom: 0.5em;
+    transition: 0.4s;
+    transition-timing-function: cubic-bezier(0.81, -0.04, 0.38, 1.5);
+    box-shadow: inset 15px -4px 0px 15px #ffcf48; 
+}
+
+.switch input:checked+.slider {
+
+    background-color: #131313;
+}
+
+.switch input:checked+.slider:before {
+    transform: translateX(-1.8em);
+   
+    box-shadow: inset 8px -4px 0px 0px #fff; 
+}
+
+
+.star {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    opacity: 0; 
+    transition: all 0.4s;
+}
+
+.star_1 {
+    left: 2.5em;
+    top: 0.5em;
+}
+
+.star_2 {
+    left: 2.2em;
+    top: 1.2em;
+}
+
+.star_3 {
+    left: 3em;
+    top: 0.9em;
+}
+
+.switch input:checked~.slider .star {
+    opacity: 1; 
+}
+
+
+.cloud {
+    width: 3.5em;
+    position: absolute;
+    bottom: -1.4em;
+    left: -1.1em;
+    opacity: 1; 
+    transition: all 0.4s;
+}
+
+.switch input:checked~.slider .cloud {
+    opacity: 0; 
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* header */
+header {
+    background-color: var(--header-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    flex-wrap: wrap;
+}
+
+header img {
+    height: 80px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    padding: 20px 20px;
+    font-size: 17.5px;
+    border-radius: 15px;    
+    box-shadow: #1d3c41 0px 6px 9px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    transform: scale(1.05);
+}
+
+nav a:nth-child(4) {
+    background: #f7a700;
+    box-shadow: #8a5e01 0px 11px 10px;
+    color: white;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+
+.parallax-hm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  height: 95vh;
+  width: 100%;
+  background: center / cover no-repeat;
+  background-attachment: fixed;
+  background-image: url(./Imgs/sala-de-aula-1570048917026_v2_900x506.png);
+  z-index: 0;
+}
+
+.parallax-hm::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(36, 43, 44, 0.5);
+  z-index: 0;
+}
+
+.parallax-hm > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* h1-Levando Educação Onde Ela Ainda Não Chegou */
+.text-section {
+    flex: 1;
+    min-width: 300px;
+    margin-top: 100px;
+}
+
+.slogan {
+     text-shadow: 2px 2px 2px rgba(0,0,0,0.4);
+    color: white;
+    font-size: 50px;
+    margin-top: 150px;
+    font-weight: bold;
+    white-space: pre-line;
+    margin-bottom: 100px;
+    text-align: center;
+}
+
+
+/* Botão para saber mais */
+.btn-doe-agora {
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-doe-agora-avaliacao {
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px auto;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-doe-agora-avaliacao:hover {
+    transform: scale(1.1);
+}
+
+.btn-saiba-mais {
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 20px auto;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+.btn-doe-agora:hover {
+    transform: scale(1.1);
+    background-color: #4a7177;
+}
+
+/* carousel */
+.carousel-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-row;
+    background-color: #524f4f3e;
+    padding: 30px;
+    border-radius: 10px;
+    /* Removemos o max-width fixo para permitir mais largura */
+    max-width: 1200px; /* aumenta espaço para caber carrossel + texto */
+    margin: 80px auto; /* centraliza horizontalmente */
+    gap: 60px; /* espaço entre carrossel e descrição */
+}
+
+/* Módulo do carrossel */
+.carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    overflow: visible; /* <-- alterado para deixar botões visíveis */
+}
+
+/* Imagens do carrossel */
+.carousel img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 6px;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    z-index: 0; /* <-- garante que fique atrás dos botões */
+}
+
+.carousel img.active {
+    opacity: 1;
+    z-index: 1;
+    pointer-events: auto;
+}
+
+/* Navegação do carrossel (botões) */
+.carousel-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 340px; /* empurra os botões para abaixo da imagem */
+  z-index: 2; /* garante que fiquem acima da imagem */
+  gap: 10px;
+  position: relative;
+}
+
+/* Botão central */
+.btn-escolas {
+  padding: 10px 20px;
+  font-weight: bold; 
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--btn-color, #237074);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-escolas:hover {
+    background-color: #4a7177;
+}
+
+/* Botões anterior/próximo */
+.cssbuttons-io-button {
+    background: #237074;
+    color: white;
+    font-family: inherit;
+    padding: 0.6em 1.2em;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.cssbuttons-io-button:hover {
+    transform: scale(1.05);
+}
+
+/* Descrição */
+.descricao {
+    flex: 1 1 400px;
+    background-color: var(--bg-secundario, #fff);
+    color: var(--texto, #333);
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #1f8f89;
+    max-width: 500px;
+    text-indent: 5px;
+}
+
+.avaliacoes {
+  background-color: #01737b;
+  padding: 80px 30px;
+  color: white;
+  text-align: center;
+  margin: 100px 0;
+}
+
+.avaliacoes h1 {
+  font-size: 25px;
+  margin-bottom: 40px;
+}
+
+.container-avaliacoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.carrossel-avaliacoes-wrapper {
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px; /* A largura máxima do contêiner visível */
+}
+
+.carrossel-avaliacoes {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  /* Remova ou comente a linha abaixo */
+  /* width: 300%; */
+}
+
+.card-avaliacao {
+  flex: 0 0 auto; /* Importante: Não permitir que os cards encolham e permitir que a largura seja automática */
+  width: 100%; /* Isso garante que cada card ocupe 100% da largura do seu wrapper visível */
+  max-width: 900px; /* Considere a largura máxima do seu wrapper */
+  background-color: white;
+  color: black;
+  padding: 60px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.botao-carrosel-avaliacao {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 24px;
+  border: none;
+  background-color: transparent;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.botao-carrosel-avaliacao:hover {
+  transform: scale(1.5);
+}
+
+/* Responsivo para telas pequenas */
+@media (max-width: 900px) {
+    .carousel-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .descricao {
+        border-left: none;
+        border-top: 5px solid #1f8f89;
+        margin-top: 20px;
+        text-align: center;
+    }
+    
+    .descricao p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+}
+
+/* ------------------------------------------------------------------------------------------ */
+/* Footer */
+
+footer {
+   width: 100%;
+   background-color: var(--footer-color);
+   color: white;
+}
+
+.footer-contents {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    font-size: 16px;
+    text-align: left
+}
+
+.footer-contatos {
+  display: flex;
+  gap: 10px;
+  margin-top: 35px;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-list {
+   margin-left: 20px;
+   display: flex;
+   align-self: start;
+   flex-direction: column;
+   gap: 0.75rem;
+   list-style: none;
+} 
+
+.footer-address {
+   list-style: none;
+  align-self: start;
+   gap: 0.75rem;
+} 
+
+.footer-address h3 {
+  margin: 0;
+  text-align: left
+}
+
+.redes_sociais-icon {
+  width: 45px;
+  height: auto;
+  transition: transform 0.3s;
+}
+
+.redes_sociais-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.footer-logo-governo {
+  align-self: start;
+  text-align: end;
+  text-align: center;
+}
+
+.footer-logo-governo img {
+  width: 120px;
+  max-width: 600px;
+  height: auto;
+  margin-right: 35px;
+}
+
+#footer-copyright {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* -------------------------------------------------------------------------------------------------------------- */
+
+/* footer-responsivo */
+@media (max-width: 768px) {
+  .footer-contents {
+     gap: 20px;
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-contatos {
+    margin-top: 0;
+    justify-content: center;
+  }
+
+  .footer-address h3 {
+    text-align: center;
+  }
+
+  .footer-logo-governo {
+    text-align: center;
+  }
+
+  .footer-logo-governo img {
+    width: 120px;
+    height: 120px;
+    max-width: 600px;
+    margin-right: 0;
+  }
+}
+
+/* ------------------------------------------------------------------------------------------ */
+
+
+/* Responsividade do menu */
+@media (max-width: 768px) {
+  header img {
+    margin: 0;
+    height: 70px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  nav.show {
+  display: flex !important;
+}
+
+  nav a {
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    text-align: center;
+  }
+
+  .switch {
+    margin: 10px 0;
+    text-align: center;    
+  }
+
+
+  .menu-toggle {
+    background-color: var(--btn-color);
+    color: ghostwhite;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 15px;
+    margin-right: 10px;
+    border-radius: 100%;
+    border: none;
+    box-shadow: whitesmoke 0px 0px 3px;
+    transition: transform 0.3s;
+  }
+
+  .menu-toggle:hover {
+    transform: scale(1.1);
+  }
+}
+
+/* Responsividade da home */
+@media (max-width: 768px) {
+    .parallax-hm {
+        height: 80vh; 
+    }
+
+    .slogan {
+        font-size: 30px; 
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
+
+    .btn-doe-agora,
+    .btn-saiba-mais {
+        font-size: 18px; 
+        padding: 8px 15px;
+    }
+
+    .carousel img {
+        height: 220px; 
+    }
+
+    .carousel-navigation {
+        margin-top: 240px; 
+        justify-content: center; 
+        gap: 5px; 
+    }
+
+    .btn-escolas,
+    .cssbuttons-io-button {
+        font-size: 16px; 
+        padding: 8px 12px;
+    }
+
+    .avaliacoes {
+        padding: 60px 15px; 
+        margin: 60px 0;
+    }
+
+    .avaliacoes h1 {
+        font-size: 20px; 
+        margin-bottom: 30px;
+    }
+
+    .card-avaliacao {
+        padding: 25px; 
+        font-size: 0.9rem; 
+    }
+
+    .botao-carrosel-avaliacao {
+        font-size: 18px; 
+        padding: 8px 12px;
+    }
+}
